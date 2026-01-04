@@ -1,12 +1,10 @@
 import type {ReactNode} from "react";
 import './form.css';
 
-interface FormProps {
+export interface FormProps {
     actionUrl: string;
     formId: string;
     formBody?: ReactNode;
-
-    // Allows for ordering of form elements
     formFields: ReactNode[];
     button?: ReactNode;
 }

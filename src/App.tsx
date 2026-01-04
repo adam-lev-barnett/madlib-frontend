@@ -1,12 +1,12 @@
 
 import './App.css'
-import SourceTextSubmit from "./components/forms/SourceTextSubmit.tsx";
+import LandingPage from "./pages/landing/LandingPage.tsx";
 
 function App() {
 
   return (
     <div>
-        <SourceTextSubmit />
+        <LandingPage />
     </div>
   )
 }

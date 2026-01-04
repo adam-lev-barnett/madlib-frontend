@@ -1,6 +1,7 @@
-import FormNumberEntry from "./FormNumberEntry.tsx";
-import FormTextArea from "./FormTextArea.tsx";
-import Form from "./Form.tsx";
+import FormNumberEntry from "../../components/forms/entryfields/FormNumberEntry.tsx";
+import FormTextArea from "../../components/forms/entryfields/FormTextArea.tsx";
+import Form from "../../components/forms/Form.tsx";
+import './SourceTextSubmit.css'
 
 /*
 * Creates unique form component for initiating madlib creation using a "skipper" so the Madlib Machine doesn't blank every word it sees
@@ -9,6 +10,7 @@ import Form from "./Form.tsx";
 function SourceTextSubmit() {
     return (
         <div>
+            <h2>Madlibify your text!</h2>
             <Form
                 actionUrl=""
                 formId="sourceTextSubmit"
