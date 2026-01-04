@@ -24,6 +24,7 @@ function Form(
             id={formId}
             action={actionUrl}
             method="POST"
+            className="form"
         >
 
             {formBody && (<section className="formBody"></section>)}
