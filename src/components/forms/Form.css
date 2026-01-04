@@ -1,0 +1,12 @@
+form {
+    text-align: center;
+    width: 65%;
+    border-radius: 5px;
+    border: 2px solid;
+    background-color: white;
+    box-shadow: 4px 4px;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 5px 10px;
+    outline: none;
+}
