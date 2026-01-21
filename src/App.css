@@ -16,6 +16,10 @@ html, body {
     box-sizing: border-box;
 }
 
+hr {
+    width: 85%;
+}
+
 body {
     line-height: 1.5;
 }

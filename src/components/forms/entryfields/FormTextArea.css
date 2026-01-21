@@ -7,6 +7,5 @@ textarea {
     max-width: 90%;
     margin: 0 auto;
     padding: 5px;
-    overflow: scroll;
     resize: none;
 }

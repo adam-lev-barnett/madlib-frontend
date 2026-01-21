@@ -1,51 +1,17 @@
-
-body {
+.foot-notes {
     box-sizing: border-box;
-    margin: 25px 25px;
-    padding: 0 100px;
-    line-height: 1.5;
+    text-align: justify-all;
+    margin: 0 auto;
+}
+
+.simpleSummary {
+    text-align: center;
 }
 
 h1,
-h2,
-h3,
-h4{
-    text-align: center;
-}
-
-.submission {
-    display: flex;
-    justify-content: center; /* Centers horizontally */
-    align-items: center; /* Centers vertically */
-}
-
-.description {
-    padding: 0 20px;
-}
-
-.foot-notes {
-    list-style-type: none;
-    font-size: small;
-    width: 85%
-}
-
-.foot-notes li{
-    margin-bottom: 5px;
-}
-
-.example {
-    text-align: center;
-}
-
-.blank-word {
-    text-decoration: underline;
-    font-weight: bold;
-}
-
-.transform-arrow {
-    font-size: large;
-    font-variant-caps: all-petite-caps;
-    font-weight: bold;
+h2 {
+    padding: 10px;
+    margin: 0;
 }
 
 form input[type=submit] {
@@ -82,12 +48,3 @@ form input[type=submit]:active {
     background: var(--color);
     color: #fff;
 }
-
-
-
-
-
-
-
-
-

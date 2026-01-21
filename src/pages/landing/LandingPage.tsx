@@ -1,4 +1,5 @@
 import SourceTextSubmit from "./SourceTextSubmit.tsx";
+import "./LandingPage.css";
 
 function LandingPage() {
     return (
@@ -8,8 +9,10 @@ function LandingPage() {
 
                 <h2>What is the Madlib Machine?</h2>
                 <article className="explanation" id="app-summary">
-                    The Madlib Machine is an app that turns any text into a madlib by blanking out a given number of
-                    words and prompts users to fill them back in!
+                    <section className="simpleSummary">
+                        The Madlib Machine is an app that turns any text into a madlib by blanking out a given number of
+                        words and prompts users to fill them back in!
+                    </section>
                     <ol className="steps">
                         <li>Enter text you wish to <em>madlibify</em>.</li>
                         <li>Enter how many <em>madlibifiable</em> words you would like to skip.<sup>1, 2</sup></li>
@@ -22,8 +25,10 @@ function LandingPage() {
                         <li>Voila! You now have a silly madlib to share with everyone you know and/or don't know!</li>
                     </ol>
 
+                    <hr/>
+
                     <ol className="foot-notes" id="glossary">
-                        <li><sup>1</sup><strong> Madlibiable word</strong>: Any noun, verb, adjective, or adverb. This
+                        <li><sup>1</sup><strong> Madlibifiable word</strong>: Any noun, verb, adjective, or adverb. This
                             excludes words like "has," "is," etc.
                         </li>
                         <li><sup>2</sup><strong> Skipper:</strong> The number of madlibifiable words you want the
@@ -34,10 +39,58 @@ function LandingPage() {
                         </li>
                     </ol>
 
+                    <hr/>
+
                 </article>
             </section>
 
+
             <SourceTextSubmit/>
+
+            <section className="description" id="madlib-explanation">
+                <h3>What is a Madlib?</h3>
+                <article className="explanation" id="explanation">
+                    Madlibs are pieces of texts (stories, articles, poems, whatever uses written words) in which
+                    various words are removed and replaced with blank spaces. These blank spaces are labeled with the
+                    part-of-speech
+                    of the words they replaced. Madlibbers are prompted to fill in the blank spaces with any word they
+                    can think of that represents that part of speech.
+                    <br/>
+                    <br/>
+                    This results in an absurd, often humorous variation of the original text.
+
+                    <h4>Example:</h4>
+                    <section className="example" id="example-basic-madlib">
+                        <blockquote className="source-text">
+                            "The quick brown fox jumped over the lazy dog."
+                        </blockquote>
+
+                        <span className="transform-arrow">–becomes–</span>
+
+                        <blockquote className="blank-text">
+                            "The quick
+                            <span className="blank-word"> adjective </span>
+                            fox
+                            <span className="blank-word"> verb (past-tense) </span>
+                            over the lazy
+                            <span className="blank-word"> noun </span>."
+                        </blockquote>
+
+                        <span className="transform-arrow">–becomes–</span>
+
+                        <blockquote className="filled-text">
+                            "The quick <strong>goofy</strong> fox <strong>flew</strong> over the
+                            lazy <strong>cheese</strong>."
+                        </blockquote>
+                    </section>
+                    <br/>
+                    <br/>
+                    For more information, check out <a className="external=-link" id="official-history"
+                                                       href="https://madlibs.com/history/" target="_blank">the official
+                    history of Madlibs</a> as told by their creator.
+                </article>
+
+            </section>
 
         </main>
     )

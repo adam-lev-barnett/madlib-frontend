@@ -2,7 +2,7 @@ import ReplacementWordForm from "./ReplacementWordForm.tsx";
 
 function WordReplacementPage() {
 
-    const partsOfSpeech: string[] = [];
+    const partsOfSpeech: string[] = ["adverb", "bananana", "squid"];
 
     return (
         <div id="wordReplacement">
