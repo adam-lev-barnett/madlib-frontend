@@ -1,7 +1,78 @@
 import SourceTextSubmit from "./SourceTextSubmit.tsx";
 import "./LandingPage.css";
+import {useState} from "react";
+import ReplacementWordForm from "../partofspeechentry/ReplacementWordForm.tsx";
+import TextBlock from "../../components/TextBlock.tsx";
 
 function LandingPage() {
+    const [blankedText, setBlankedText] = useState<string>("");
+    const [partsOfSpeech, setPartsOfSpeech] = useState<string[]>([]);
+    const [replacementWords, setReplacementWords] = useState<string[]>([]);
+    const [completedMadlib, setCompletedMadlib] = useState<string>("");
+
+    function handleReplaceWord(i: number, word: string) {
+        const replacementWordTemp: string[] = [...replacementWords];
+        replacementWordTemp[i] = word;
+        setReplacementWords(replacementWordTemp);
+    }
+
+    function handleSourceSubmit(sourceText: string, skipper: number) {
+
+        fetch("/api/madlibs/madlibify", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                sourceText: sourceText,
+                skipper: skipper,
+            }),
+        })
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error("Failed to madlibify text");
+            }
+            return response.json();
+        })
+        .then((data) => {
+            console.log("Madlib response:", data);
+            setBlankedText(data.blankedText);
+            setPartsOfSpeech(data.partsOfSpeech);
+            const posListSize: number = data.partsOfSpeech.length;
+            setReplacementWords(new Array(posListSize).fill(""));
+        })
+        .catch((err) => {
+            console.error(err);
+        });
+    }
+
+    function handleReplacementSubmit() {
+        fetch("/api/madlibs/fillMadlib", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                blankedText: blankedText,
+                replacementWords: replacementWords,
+                completedMadlib: completedMadlib,
+            }),
+        })
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error("Failed to complete madlib with submitted words");
+            }
+            return response.json();
+        })
+            .then((data) => {
+                console.log("Complete madlib:", data);
+                setCompletedMadlib(data.completeMadlib);
+            })
+            .catch((err) => {
+                console.error(err);
+            })
+    }
+
     return (
         <main className="layout">
             <h1>Madlib Machine</h1>
@@ -45,7 +116,17 @@ function LandingPage() {
             </section>
 
 
-            <SourceTextSubmit/>
+            <SourceTextSubmit onSubmit={handleSourceSubmit} />
+            <ReplacementWordForm
+                partsOfSpeech={partsOfSpeech}
+                onWordChange={handleReplaceWord}
+                onSubmit={handleReplacementSubmit}
+            />
+            <TextBlock
+                heading={"Completed Madlib"}
+                body={completedMadlib}
+                sectionName={"completedMadlib"}
+                />
 
             <section className="description" id="madlib-explanation">
                 <h3>What is a Madlib?</h3>

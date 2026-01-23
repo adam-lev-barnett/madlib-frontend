@@ -7,6 +7,7 @@ export interface FormProps {
     formBody?: ReactNode;
     formFields: ReactNode[];
     button?: ReactNode;
+    onSubmit?: () => void;
 }
 
 function Form(
@@ -14,7 +15,8 @@ function Form(
         formId,
         formBody,
         formFields,
-        button}
+        button,
+        onSubmit}
     : FormProps) {
 
     return (
@@ -23,6 +25,10 @@ function Form(
             action={actionUrl}
             method="POST"
             className="form"
+            onSubmit={(event) => {
+                event.preventDefault();
+                onSubmit?.();
+            }}
         >
 
             {formBody && (<section className="formBody"></section>)}

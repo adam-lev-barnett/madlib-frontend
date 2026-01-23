@@ -1,8 +1,5 @@
-import ReplacementWordForm from "./ReplacementWordForm.tsx";
 
-function WordReplacementPage() {
-
-    const partsOfSpeech: string[] = ["adverb", "bananana", "squid"];
+function WordReplacementText() {
 
     return (
         <div id="wordReplacement">
@@ -11,11 +8,8 @@ function WordReplacementPage() {
                 Now that you've submitted your source text, you'll be prompted to fill in words to replace the ones blanked out by the machine!
                 Afterwards, you'll receive the completed madlibification of the text."
             </article>
-            <ReplacementWordForm
-                partsOfSpeech={partsOfSpeech}
-            />
         </div>
     )
 }
 
-export default WordReplacementPage;
+export default WordReplacementText;
