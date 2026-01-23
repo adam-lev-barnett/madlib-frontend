@@ -1,0 +1,11 @@
+.CompletedMadlib {
+    box-sizing: border-box;
+    border: 1px solid black;
+    margin: 50px 150px;
+    padding: 25px;
+    text-align: center;
+}
+
+h2 {
+    text-decoration: underline;
+}

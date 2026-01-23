@@ -2,13 +2,16 @@ import SourceTextSubmit from "./SourceTextSubmit.tsx";
 import "./LandingPage.css";
 import {useState} from "react";
 import ReplacementWordForm from "../partofspeechentry/ReplacementWordForm.tsx";
-import TextBlock from "../../components/TextBlock.tsx";
+import CompletedMadlibBlock from "../../components/text/CompletedMadlibBlock.tsx";
+import type {MadlibPhase} from "../../MadlibPhase.tsx";
+
 
 function LandingPage() {
     const [blankedText, setBlankedText] = useState<string>("");
     const [partsOfSpeech, setPartsOfSpeech] = useState<string[]>([]);
     const [replacementWords, setReplacementWords] = useState<string[]>([]);
     const [completedMadlib, setCompletedMadlib] = useState<string>("");
+    const [madlibPhase, setMadlibPhase] = useState<MadlibPhase>("SUBMIT_SOURCE");
 
     function handleReplaceWord(i: number, word: string) {
         const replacementWordTemp: string[] = [...replacementWords];
@@ -40,6 +43,7 @@ function LandingPage() {
             setPartsOfSpeech(data.partsOfSpeech);
             const posListSize: number = data.partsOfSpeech.length;
             setReplacementWords(new Array(posListSize).fill(""));
+            setMadlibPhase("REPLACE_WORDS");
         })
         .catch((err) => {
             console.error(err);
@@ -67,6 +71,7 @@ function LandingPage() {
             .then((data) => {
                 console.log("Complete madlib:", data);
                 setCompletedMadlib(data.completeMadlib);
+                setMadlibPhase("COMPLETE");
             })
             .catch((err) => {
                 console.error(err);
@@ -116,17 +121,25 @@ function LandingPage() {
             </section>
 
 
-            <SourceTextSubmit onSubmit={handleSourceSubmit} />
-            <ReplacementWordForm
-                partsOfSpeech={partsOfSpeech}
-                onWordChange={handleReplaceWord}
-                onSubmit={handleReplacementSubmit}
-            />
-            <TextBlock
-                heading={"Completed Madlib"}
-                body={completedMadlib}
-                sectionName={"completedMadlib"}
+            {madlibPhase === "SUBMIT_SOURCE" && <SourceTextSubmit onSubmit={handleSourceSubmit} />}
+
+            {
+                madlibPhase === "REPLACE_WORDS" &&
+                <ReplacementWordForm
+                    partsOfSpeech={partsOfSpeech}
+                    onWordChange={handleReplaceWord}
+                    onSubmit={handleReplacementSubmit}
                 />
+            }
+
+            {
+                madlibPhase === "COMPLETE" &&
+                <CompletedMadlibBlock
+                    body={completedMadlib}
+                />
+            }
+
+
 
             <section className="description" id="madlib-explanation">
                 <h3>What is a Madlib?</h3>
