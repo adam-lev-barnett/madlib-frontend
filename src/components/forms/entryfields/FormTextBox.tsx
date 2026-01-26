@@ -1,5 +1,5 @@
 import type {ChangeEvent} from "react";
-
+import './SmallFormFields.css'
 /*
  * For small text entry form fields
  * Used primarily in ReplacementWordForm to generate parts-of-speech blocks to prompt users to enter replacement words for their madlibs

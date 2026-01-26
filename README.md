@@ -30,7 +30,7 @@ Users submit any text up to **10,000 characters**, are prompted to replace a use
 - **Madlib saving and sharing** will take longer to implement but will be available in coming versions
 ___
 ## Tech stack
-**Frontend**: React, TypeScript, Vite, CSS
+**Frontend**: React, TypeScript, Vite, CSS  
 **Backend**: Java, Spring Boot, Maven, Stanford CoreNLP, Junit Jupiter
 
 ---

@@ -1,66 +1,25 @@
 #root {
     width: 100%;
-    padding: 2rem;
 }
 
 .layout {
-    max-width: 1280px;
+    max-width: 960px;
     margin: 0 auto;
+    padding: 2.5rem 1.25rem;
 }
 
-html, body {
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+h2,
+h3 {
+    margin: 1.5rem 0 0.75rem;
 }
 
 hr {
-    width: 85%;
-}
-
-body {
-    line-height: 1.5;
-}
-
-
-.form {
-    width: 100%;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-input,
-textarea,
-select {
-    max-width: 100%;
-}
-
-.description {
-    padding: 0 20px;
-}
-
-.foot-notes {
-    list-style-type: none;
-    font-size: small;
-    width: 85%;
-}
-
-.foot-notes li {
-    margin-bottom: 5px;
-}
-
-.example {
-    text-align: center;
-}
-
-.blank-word {
-    text-decoration: underline;
-    font-weight: bold;
-}
-
-.transform-arrow {
-    font-size: large;
-    font-variant-caps: all-petite-caps;
-    font-weight: bold;
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 2rem 0;
 }

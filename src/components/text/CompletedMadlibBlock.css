@@ -1,11 +1,18 @@
 .CompletedMadlib {
-    box-sizing: border-box;
-    border: 1px solid black;
-    margin: 50px 150px;
-    padding: 25px;
-    text-align: center;
+    background: var(--surface);
+    border-radius: 14px;
+    padding: 2rem 2.25rem;
+    margin: 2.5rem auto;
+    max-width: 720px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+    line-height: 1.75;
 }
 
-h2 {
-    text-decoration: underline;
+.CompletedMadlib h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.CompletedMadlib article {
+    font-size: 1.05rem;
 }

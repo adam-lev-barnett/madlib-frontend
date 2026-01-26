@@ -1,11 +1,17 @@
-div {
-    padding: 5px;
+textarea {
+    width: 100%;
+    min-height: 180px;
+    padding: 1rem;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    font-size: 1rem;
+    line-height: 1.7;
+    resize: vertical;
+    font-family: inherit;
+    background: #fafafa;
 }
 
-textarea {
-    box-sizing: border-box;
-    max-width: 90%;
-    margin: 0 auto;
-    padding: 5px;
-    resize: none;
+textarea:focus {
+    outline: none;
+    border-color: #9ca3af;
 }
