@@ -40,7 +40,7 @@ function SourceTextSubmit({onSubmit}: SourceTextSubmitProps): JSX.Element {
                         <FormTextArea
                             placeholderText="Enter the text you wish to madlibify"
                             minLength={0}
-                            maxLength={2000}
+                            maxLength={10000}
                             onChange={(sourceText: string) => setSourceText(sourceText)}/>
                     </div>
                 ]}
