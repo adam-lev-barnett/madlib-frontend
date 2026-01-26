@@ -1,5 +1,9 @@
 import type {ReactNode} from "react";
 
+/*
+ * General text section component for easier bulk formatting
+ */
+
 interface TextSectionProps {
     heading: ReactNode;
     body: ReactNode;

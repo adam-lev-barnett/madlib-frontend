@@ -1,24 +1,48 @@
-import SourceTextSubmit from "./SourceTextSubmit.tsx";
+import SourceTextSubmit from "../sourcetextsubmit/SourceTextSubmit.tsx";
 import "./LandingPage.css";
 import {useState} from "react";
 import ReplacementWordForm from "../partofspeechentry/ReplacementWordForm.tsx";
 import CompletedMadlibBlock from "../../components/text/CompletedMadlibBlock.tsx";
 import type {MadlibPhase} from "../../MadlibPhase.tsx";
 
-
+/*
+ * Landing page for the app holding the overall HTML formatting and state of madlib creation
+ * Defines functions for backend fetching and determining which phase of the app is visible to the user
+ */
 function LandingPage() {
+
+    /*
+     * Used to pass source madlib text to backend logic to blank out user-defined number of words and replace them with text blocks indicating parts of speech.
+     *  Currently not visible to the user, but will be available in future updates for users to share
+     */
     const [blankedText, setBlankedText] = useState<string>("");
+
+    /*
+     * Backend returns a list of parts of speech so front end can prompt users to enter replacement words based on the pos given to them
+     * Used by ReplacementWordForm to generate array of pos fields
+    */
     const [partsOfSpeech, setPartsOfSpeech] = useState<string[]>([]);
+
+    /* Passed to backend so it can fill in the blanked words and return the completed madlib */
     const [replacementWords, setReplacementWords] = useState<string[]>([]);
+
+    /* Displays the completed madlib to the user */
     const [completedMadlib, setCompletedMadlib] = useState<string>("");
+
+    /* Determines which phase of madlib creation is visible to the user on the landing page (submit source text, fill in replacement words, completed madlib)
+       instead of navigating to different URLs */
     const [madlibPhase, setMadlibPhase] = useState<MadlibPhase>("SUBMIT_SOURCE");
 
+    /*
+     * Updates the dom as user enters or deletes replacement word form (or any future use of FormTextBox text fields)
+     */
     function handleReplaceWord(i: number, word: string) {
         const replacementWordTemp: string[] = [...replacementWords];
         replacementWordTemp[i] = word;
         setReplacementWords(replacementWordTemp);
     }
 
+    /* Submits the source text and skipper values to the backend to retrieve the blanked madlib and list of parts of speech to prompt user to enter replacement words*/
     function handleSourceSubmit(sourceText: string, skipper: number) {
 
         fetch("https://sea-lion-app-qnlay.ondigitalocean.app/madlibs/madlibify", {
@@ -50,6 +74,7 @@ function LandingPage() {
         });
     }
 
+    /* Submits the array of user's replacement words to the backend to retrieve the completed madlib */
     function handleReplacementSubmit() {
         fetch("https://sea-lion-app-qnlay.ondigitalocean.app/madlibs/fillMadlib", {
             method: "POST",
@@ -121,9 +146,12 @@ function LandingPage() {
             </section>
 
 
-            {madlibPhase === "SUBMIT_SOURCE" && <SourceTextSubmit onSubmit={handleSourceSubmit} />}
+            {
+                /* Default state of madlib - Displays form for Madlib submission (SourceTextSubmit)*/
+                madlibPhase === "SUBMIT_SOURCE" && <SourceTextSubmit onSubmit={handleSourceSubmit} />}
 
             {
+                /* Sets the state following source text submission - Replaces source text submission with ReplacementWordForm to prompt user for replacement words*/
                 madlibPhase === "REPLACE_WORDS" &&
                 <ReplacementWordForm
                     partsOfSpeech={partsOfSpeech}
@@ -133,6 +161,7 @@ function LandingPage() {
             }
 
             {
+                /* Replaces word replacement form to display the completed Madlib to the user*/
                 madlibPhase === "COMPLETE" &&
                 <CompletedMadlibBlock
                     body={completedMadlib}

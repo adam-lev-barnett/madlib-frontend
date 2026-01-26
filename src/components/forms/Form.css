@@ -1,3 +1,5 @@
+/* Template for user entry forms / madlib interaction */
+
 div {
     margin: 0 auto;
     position: sticky;
@@ -22,6 +24,7 @@ form label {
     display: block;
 }
 
+/* The only component that isn't mine. Taken from a royalty free design library */
 form input[type=submit] {
     --b: 3px;   /* border thickness */
     --s: .45em; /* size of the corner */

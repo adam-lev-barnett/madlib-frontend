@@ -1,3 +1,7 @@
+/*
+ * For forms with number fields. Used primarily for SourceTextSubmit to enter the "skipper"
+ */
+
 interface FormNumberEntryProps {
     labelId: string;
     prompt: string;
@@ -20,7 +24,10 @@ function FormNumberEntry({labelId, prompt, placeHolder, minNumber, maxNumber, on
                 min={minNumber}
                 max={maxNumber}
                 onChange={(event) => {
-                    const valueAsNumber = Number(event.target.value); // Need to parse number from string entry
+
+                    // Need to parse number from string entry
+                    const valueAsNumber = Number(event.target.value);
+
                     onChange(valueAsNumber);
                 }}
                 required />

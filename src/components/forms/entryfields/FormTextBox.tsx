@@ -1,10 +1,15 @@
 import type {ChangeEvent} from "react";
 
+/*
+ * For small text entry form fields
+ * Used primarily in ReplacementWordForm to generate parts-of-speech blocks to prompt users to enter replacement words for their madlibs
+ */
 interface FormTextBoxProps {
     labelId: string;
     prompt: string;
     minChars: number;
     maxChars: number;
+    // Communicates with the DOM whenever anything is entered or removed; separate from form submission
     onChange: (text: string) => void;
 }
 

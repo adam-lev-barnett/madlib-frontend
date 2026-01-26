@@ -1,7 +1,11 @@
 import './FormTextArea.css'
 import type {ChangeEvent} from "react";
 
+/*
+ * For text area form components (text entry longer than a single block)
+ */
 interface FormTextAreaProps {
+    // Prompt text present before user input
     placeholderText: string,
     minLength: number,
     maxLength: number,
@@ -9,6 +13,7 @@ interface FormTextAreaProps {
 }
 
 function FormTextArea({placeholderText, minLength, maxLength, onChange}: FormTextAreaProps) {
+    //TODO remove magic numbers from rows/cols
     return (
         <textarea
             id="src-text"

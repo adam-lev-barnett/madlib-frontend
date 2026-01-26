@@ -1,4 +1,5 @@
 
+/* Auxiliary text for introduction of word replacement form */
 function WordReplacementText() {
 
     return (
