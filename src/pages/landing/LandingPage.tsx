@@ -107,7 +107,7 @@ function LandingPage() {
         <main className="layout">
             <h1>Madlib Machine</h1>
             <section className="description" id="what">
-
+                <article className="update">I encountered my first bug! Thank you for your patience while I attempt to get the replacement word phase back up.</article>
                 <h2>What is the Madlib Machine?</h2>
                 <article className="explanation" id="app-summary">
                     <section className="simpleSummary">
