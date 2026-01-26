@@ -1,5 +1,3 @@
-import './SmallFormFields.css'
-
 /*
  * For forms with number fields. Used primarily for SourceTextSubmit to enter the "skipper"
  */
