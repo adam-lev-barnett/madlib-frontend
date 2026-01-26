@@ -1,5 +1,5 @@
 import type {ReactNode} from "react";
-import './form.css';
+import './Form.css';
 
 export interface FormProps {
     actionUrl: string;
