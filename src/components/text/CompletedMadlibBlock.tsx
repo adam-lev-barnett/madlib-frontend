@@ -1,9 +1,6 @@
 import type {ReactNode} from "react";
 import './CompletedMadlibBlock.css';
 
-/*
- * The final result after submitting the source text and the replacement words
- */
 interface CompletedMadlibBlockProps {
     body: ReactNode;
 }

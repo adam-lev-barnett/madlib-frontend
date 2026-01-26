@@ -1,0 +1,93 @@
+
+body {
+    box-sizing: border-box;
+    margin: 25px 25px;
+    padding: 0 100px;
+    line-height: 1.5;
+}
+
+h1,
+h2,
+h3,
+h4{
+    text-align: center;
+}
+
+.submission {
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center; /* Centers vertically */
+}
+
+.description {
+    padding: 0 20px;
+}
+
+.foot-notes {
+    list-style-type: none;
+    font-size: small;
+    width: 85%
+}
+
+.foot-notes li{
+    margin-bottom: 5px;
+}
+
+.example {
+    text-align: center;
+}
+
+.blank-word {
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.transform-arrow {
+    font-size: large;
+    font-variant-caps: all-petite-caps;
+    font-weight: bold;
+}
+
+form input[type=submit] {
+    --b: 3px;   /* border thickness */
+    --s: .45em; /* size of the corner */
+    --color: #373B44;
+
+    padding: calc(.5em + var(--s)) calc(.9em + var(--s));
+    color: var(--color);
+    --_p: var(--s);
+    background:
+            conic-gradient(from 90deg at var(--b) var(--b),#0000 90deg,var(--color) 0)
+            var(--_p) var(--_p)/calc(100% - var(--b) - 2*var(--_p)) calc(100% - var(--b) - 2*var(--_p));
+    transition: .3s linear, color 0s, background-color 0s;
+    outline: var(--b) solid #0000;
+    outline-offset: .6em;
+    font-size: 16px;
+
+    border: 0;
+
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+form input[type=submit]:hover,
+form input[type=submit]:focus-visible{
+    --_p: 0px;
+    outline-color: var(--color);
+    outline-offset: .05em;
+}
+
+form input[type=submit]:active {
+    background: var(--color);
+    color: #fff;
+}
+
+
+
+
+
+
+
+
+
