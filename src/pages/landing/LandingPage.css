@@ -1,50 +1,32 @@
-.foot-notes {
-    box-sizing: border-box;
-    text-align: justify-all;
-    margin: 0 auto;
-}
-
 .simpleSummary {
+    border: 1px solid #333;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
     text-align: center;
 }
 
-h1,
-h2 {
-    padding: 10px;
-    margin: 0;
+.example {
+    background: #1a1a1a;
+    border: 2px solid #646cff;
+    padding: 25px;
+    box-shadow: 8px 8px 0px #000;
 }
 
-form input[type=submit] {
-    --b: 3px;   /* border thickness */
-    --s: .45em; /* size of the corner */
-    --color: #373B44;
-
-    padding: calc(.5em + var(--s)) calc(.9em + var(--s));
-    color: var(--color);
-    --_p: var(--s);
-    background:
-            conic-gradient(from 90deg at var(--b) var(--b),#0000 90deg,var(--color) 0)
-            var(--_p) var(--_p)/calc(100% - var(--b) - 2*var(--_p)) calc(100% - var(--b) - 2*var(--_p));
-    transition: .3s linear, color 0s, background-color 0s;
-    outline: var(--b) solid #0000;
-    outline-offset: .6em;
-    font-size: 16px;
-
-    border: 0;
-
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
+.blank-word {
+    color: #00d4ff;
+    font-weight: bold;
+    border-bottom: 2px dashed #00d4ff;
 }
 
-form input[type=submit]:hover,
-form input[type=submit]:focus-visible{
-    --_p: 0px;
-    outline-color: var(--color);
-    outline-offset: .05em;
+.transform-arrow {
+    color: #646cff;
+    display: block;
+    margin: 15px 0;
+    font-family: 'Orbitron', sans-serif;
 }
 
-form input[type=submit]:active {
-    background: var(--color);
-    color: #fff;
+.foot-notes {
+    font-size: 9px;
 }

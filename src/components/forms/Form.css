@@ -1,61 +1,108 @@
-/* Template for user entry forms / madlib interaction */
-
-div {
-    margin: 0 auto;
-    position: sticky;
-}
-
 form {
-    text-align: center;
-    width: 100%;
-    border-radius: 5px;
-    border: 2px solid;
-    background-color: white;
-    box-shadow: 4px 4px;
-    font-size: 15px;
-    font-weight: 600;
-    padding: 5px 10px;
-    outline: none;
+    background-color: #1a1a1a;
+    border: 3px solid #000;
+    box-shadow: 12px 12px 0px #000;
+    padding: 40px;
+    transition: all 0.2s ease;
 }
 
-
-form label {
-    padding: 5px;
+.formField label {
+    font-family: 'Orbitron', sans-serif;
+    color: #646cff;
+    font-size: 0.75rem;
     display: block;
+    margin-bottom: 10px;
 }
 
-/* The only component that isn't mine. Taken from a royalty free design library */
+.form {
+    display: flex;
+    flex-direction: column; /* Keep fields stacked vertically */
+    align-items: center;    /* Center all children (fields and button) */
+}
+
+/* Specifically targeting the submit button */
+form input[type="submit"] {
+    display: block;
+    margin: 20px auto; /* Auto margins on left/right provide perfect centering */
+    width: fit-content; /* Ensures the button doesn't stretch to 100% */
+}
+
+/* The "Submit" Button - Electric Glow */
 form input[type=submit] {
-    --b: 3px;   /* border thickness */
-    --s: .45em; /* size of the corner */
-    --color: #373B44;
-
-    padding: calc(.5em + var(--s)) calc(.9em + var(--s));
-    color: var(--color);
-    --_p: var(--s);
-    background:
-            conic-gradient(from 90deg at var(--b) var(--b),#0000 90deg,var(--color) 0)
-            var(--_p) var(--_p)/calc(100% - var(--b) - 2*var(--_p)) calc(100% - var(--b) - 2*var(--_p));
-    transition: .3s linear, color 0s, background-color 0s;
-    outline: var(--b) solid #0000;
-    outline-offset: .6em;
-    font-size: 16px;
-
-    border: 0;
-
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
+    background: #000;
+    color: #00d4ff;
+    border: 2px solid #00d4ff;
+    font-family: 'Orbitron', sans-serif;
+    padding: 15px 30px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: 0.3s;
+    box-sizing: border-box;
+    margin: 10px;
+    justify-content: center;
 }
 
-form input[type=submit]:hover,
-form input[type=submit]:focus-visible{
-    --_p: 0px;
-    outline-color: var(--color);
-    outline-offset: .05em;
+form input[type=submit]:hover {
+    background: #00d4ff;
+    color: #000;
+    box-shadow: 0 0 20px #00d4ff;
 }
 
-form input[type=submit]:active {
-    background: var(--color);
-    color: #fff;
+/* Container for the number input */
+.formField input[type="number"] {
+    box-sizing: border-box;
+    background-color: #050505; /* Deep black background */
+    color: #00d4ff; /* Electric Blue text */
+    border: 2px solid #333;
+    border-radius: 4px;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.75rem;
+    font-weight: bold;
+    padding: 10px;
+    width: 80px;
+    text-align: center;
+    outline: none;
+    box-shadow: inset 0 0 10px #000, 0 0 5px rgba(0, 212, 255, 0.2);
+    transition: all 0.3s ease;
+    margin: 10px auto;
+}
+
+/* Removes arrows in Chrome, Safari, Edge */
+.formField input[type="number"]::-webkit-outer-spin-button,
+.formField input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.formField > div {
+    display: flex;
+    flex-direction: column; /* Stack label on top of input */
+    align-items: center;    /* Center them horizontally */
+    justify-content: center;
+    width: 100%;            /* Ensure it takes full width of the form */
+    margin: 0 auto;
+}
+
+/* Ensure the input itself doesn't have weird margins */
+input[type="number"] {
+    display: block;
+    margin: 10px 0; /* Adds spacing between label and input */
+}
+
+.formField input[type="number"]:focus {
+    border-color: #00d4ff;
+    box-shadow: inset 0 0 5px #000, 0 0 15px rgba(0, 212, 255, 0.5);
+    transform: scale(1.25);
+    margin: 10px;
+    box-sizing: border-box;
+}
+
+/* Style the label specifically for the number entry */
+.formField label[for="skipper-value"] {
+    font-family: 'Orbitron', sans-serif;
+    color: #646cff;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+    display: block;
 }

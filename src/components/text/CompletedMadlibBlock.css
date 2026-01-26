@@ -1,11 +1,24 @@
 .CompletedMadlib {
-    box-sizing: border-box;
-    border: 1px solid black;
-    margin: 50px 150px;
-    padding: 25px;
-    text-align: center;
+    background-color: #f5f5f5; /* Off-white paper */
+    color: #222;
+    border: 1px solid #ddd;
+    box-shadow: 15px 15px 30px rgba(0,0,0,0.5);
+    padding: 50px;
+    max-width: 700px;
+    margin: 50px auto;
+    line-height: 2;
+    position: relative;
 }
 
-h2 {
-    text-decoration: underline;
+.CompletedMadlib h2 {
+    color: #222;
+    -webkit-text-fill-color: #222; /* Overriding the global gradient */
+    border-bottom: 3px solid #646cff;
+    margin-bottom: 30px;
+}
+
+.CompletedMadlib strong {
+    color: #646cff;
+    background: rgba(100, 108, 255, 0.1);
+    padding: 0 4px;
 }
