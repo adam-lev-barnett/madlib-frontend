@@ -21,7 +21,7 @@ function LandingPage() {
 
     function handleSourceSubmit(sourceText: string, skipper: number) {
 
-        fetch("/api/madlibs/madlibify", {
+        fetch("https://sea-lion-app-qnlay.ondigitalocean.app/madlibs/madlibify", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -51,7 +51,7 @@ function LandingPage() {
     }
 
     function handleReplacementSubmit() {
-        fetch("/api/madlibs/fillMadlib", {
+        fetch("https://sea-lion-app-qnlay.ondigitalocean.app/madlibs/fillMadlib", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
