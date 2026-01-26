@@ -105,4 +105,5 @@ input[type="number"] {
     letter-spacing: 1px;
     margin-bottom: 15px;
     display: block;
+    padding: 5px;
 }
