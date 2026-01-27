@@ -11,7 +11,7 @@
 }
 
 .CompletedMadlib h2 {
-    color: #222;
+    color: #ffffff;
     -webkit-text-fill-color: #222; /* Overriding the global gradient */
     border-bottom: 3px solid #646cff;
     margin-bottom: 30px;
