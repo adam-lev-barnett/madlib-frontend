@@ -81,6 +81,7 @@ form input[type=submit]:hover {
     justify-content: center;
     width: 100%;            /* Ensure it takes full width of the form */
     margin: 0 auto;
+    padding: 10px;
 }
 
 /* Ensure the input itself doesn't have weird margins */
