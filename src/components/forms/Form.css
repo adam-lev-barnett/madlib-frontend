@@ -11,7 +11,7 @@ form {
     color: #646cff;
     font-size: 0.75rem;
     display: block;
-    margin-bottom: 10px;
+    margin: 5px;
 }
 
 .form {
@@ -86,7 +86,7 @@ form input[type=submit]:hover {
 /* Ensure the input itself doesn't have weird margins */
 input[type="number"] {
     display: block;
-    margin: 10px 0; /* Adds spacing between label and input */
+    padding: 5px; /* Adds spacing between label and input */
 }
 
 .formField input[type="number"]:focus {
