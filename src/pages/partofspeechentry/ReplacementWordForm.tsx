@@ -46,6 +46,7 @@ function ReplacementWordForm({ partsOfSpeech, onWordChange, onSubmit }: Replacem
         <div id="replaceWords">
                 <WordReplacementText />
                 <Form
+                    formBody="Now that you've submitted your source text, you'll be prompted to fill in words to replace the ones blanked out by the machine! Afterwards, you'll receive the completed madlibification of the text."
                     actionUrl=""
                     formId="replaceWords"
                     formFields={formFields}
