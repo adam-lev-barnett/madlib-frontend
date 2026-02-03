@@ -4,6 +4,7 @@ import {useState} from "react";
 import ReplacementWordForm from "../partofspeechentry/ReplacementWordForm.tsx";
 import CompletedMadlibBlock from "../../components/text/CompletedMadlibBlock.tsx";
 import type {MadlibPhase} from "../../MadlibPhase.tsx";
+import { Analytics } from '@vercel/analytics/next';
 
 function LandingPage() {
     const [blankedText, setBlankedText] = useState<string>("");
@@ -167,6 +168,7 @@ function LandingPage() {
                 </article>
 
             </section>
+            <Analytics />
         </main>
     )
 }
