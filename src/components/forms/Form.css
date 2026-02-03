@@ -1,15 +1,14 @@
 form {
-    background-color: #ffffff;
-    border-radius: 10px;
+    background-color: #1a1a1a;
     border: 3px solid #000;
-    box-shadow: 12px 12px 12px #464545;
-    padding: 20px;
+    box-shadow: 12px 12px 0px #000;
+    padding: 40px;
     transition: all 0.2s ease;
 }
 
 .formField label {
     font-family: 'Orbitron', sans-serif;
-    color: #000000;
+    color: #646cff;
     font-size: 0.75rem;
     display: block;
     margin: 5px;
@@ -30,11 +29,11 @@ form input[type="submit"] {
 
 /* The "Submit" Button - Electric Glow */
 form input[type=submit] {
-    background: #ffffff;
-    color: #000000;
-    border: 2px solid #000000;
+    background: #000;
+    color: #00d4ff;
+    border: 2px solid #00d4ff;
     font-family: 'Orbitron', sans-serif;
-    padding: 5px 30px;
+    padding: 15px 30px;
     cursor: pointer;
     text-transform: uppercase;
     transition: 0.3s;
@@ -44,16 +43,16 @@ form input[type=submit] {
 }
 
 form input[type=submit]:hover {
-    background: #2abd19;
+    background: #00d4ff;
     color: #000;
-    box-shadow: 0 0 20px #626262;
+    box-shadow: 0 0 20px #00d4ff;
 }
 
 /* Container for the number input */
 .formField input[type="number"] {
     box-sizing: border-box;
-    background-color: #ffffff; /* Deep black background */
-    color: #000000; /* Electric Blue text */
+    background-color: #050505; /* Deep black background */
+    color: #00d4ff; /* Electric Blue text */
     border: 2px solid #333;
     border-radius: 4px;
     font-family: 'Space Mono', monospace;
@@ -63,6 +62,7 @@ form input[type=submit]:hover {
     width: 80px;
     text-align: center;
     outline: none;
+    box-shadow: inset 0 0 10px #000, 0 0 5px rgba(0, 212, 255, 0.2);
     transition: all 0.3s ease;
     margin: 10px auto;
 }
@@ -81,7 +81,7 @@ form input[type=submit]:hover {
     justify-content: center;
     width: 100%;            /* Ensure it takes full width of the form */
     margin: 0 auto;
-    padding: 5px;
+    padding: 10px;
 }
 
 /* Ensure the input itself doesn't have weird margins */
@@ -91,8 +91,8 @@ input[type="number"] {
 }
 
 .formField input[type="number"]:focus {
-    border-color: #000000;
-    box-shadow: inset 0 0 5px #9d7070, 0 0 15px rgba(73, 73, 73, 0.5);
+    border-color: #00d4ff;
+    box-shadow: inset 0 0 5px #000, 0 0 15px rgba(0, 212, 255, 0.5);
     transform: scale(1.25);
     margin: 10px;
     box-sizing: border-box;
@@ -101,10 +101,10 @@ input[type="number"] {
 /* Style the label specifically for the number entry */
 .formField label[for="skipper-value"] {
     font-family: 'Orbitron', sans-serif;
-    color: #000000;
+    color: #646cff;
     font-size: 0.9rem;
     letter-spacing: 1px;
-    margin-bottom: 5px;
+    margin-bottom: 15px;
     display: block;
-    padding: 1px;
+    padding: 5px;
 }
