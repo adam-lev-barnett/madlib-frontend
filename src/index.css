@@ -1,19 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Space+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&family=Lugrasimo&display=swap');
+
 
 :root {
-    font-family: 'Space Mono', monospace;
-    background-color: #0f0f12; /* Deep space black */
-    color: #e0e0e0;
+    font-family: 'Lexend Deca', sans-serif;
+    background-color: #fdfdfc; /* Deep space black */
+    color: #000000;
 }
 
 h1, h2 {
-    font-family: 'Orbitron', sans-serif;
-    text-transform: uppercase;
-    letter-spacing: 4px;
-    background: linear-gradient(90deg, #646cff, #00d4ff);
+    font-family: 'Lexend Deca', sans-serif;
+    font-size: 3em;
+    letter-spacing: 2px;
+    background: linear-gradient(90deg, #000000, #000000);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    filter: drop-shadow(0 0 5px rgba(100, 108, 255, 0.3));
 }
 
 body {
@@ -25,6 +25,7 @@ body {
     min-width: 320px;
     min-height: 100vh;
     font-size: 12px; /* Add this line to change global text size */
+    line-height: 100px;
 }
 
 /* Subtle scanline effect overlay */

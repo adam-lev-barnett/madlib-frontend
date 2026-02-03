@@ -1,32 +1,31 @@
 .simpleSummary {
-    border: 1px solid #333;
-    background: rgba(255, 255, 255, 0.03);
-    padding: 20px;
-    border-radius: 8px;
-    margin-bottom: 30px;
     text-align: center;
+    font-size: 20px;
 }
 
 .example {
-    background: #1a1a1a;
-    border: 2px solid #646cff;
+    background: #ffffff;
+    border: 2px solid #000000;
     padding: 25px;
     box-shadow: 8px 8px 0px #000;
+    max-width: 50%;
+    margin: auto;
 }
 
 .blank-word {
-    color: #00d4ff;
+    color: #000000;
     font-weight: bold;
-    border-bottom: 2px dashed #00d4ff;
 }
 
 .transform-arrow {
-    color: #646cff;
+    color: #000000;
     display: block;
     margin: 15px 0;
     font-family: 'Orbitron', sans-serif;
 }
 
-.foot-notes {
-    font-size: 9px;
+.steps {
+    box-sizing: content-box;
+    padding-left: 20%;
+    margin: 15px 30px;
 }
