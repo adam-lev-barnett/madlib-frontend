@@ -1,5 +1,5 @@
 # Madlib Machine — Frontend
-
+  
 ## Overview
 
 This repository contains the frontend for *Madlib Machine*, a web application that transforms user-submitted text into an interactive madlib.
