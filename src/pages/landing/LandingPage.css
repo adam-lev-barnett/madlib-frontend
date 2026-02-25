@@ -1,32 +1,135 @@
-.simpleSummary {
-    border: 1px solid #333;
-    background: rgba(255, 255, 255, 0.03);
-    padding: 20px;
-    border-radius: 8px;
-    margin-bottom: 30px;
+.page-wrapper {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 1rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.site-heading {
+    font-family: 'Fredoka One', sans-serif;
+    font-size: 3.5rem;
+    color: #ffffff;
     text-align: center;
+    margin: 0;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    animation: fadeInUp 0.5s ease both;
+}
+
+/* Accordions */
+
+.accordion {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 16px;
+    color: rgba(255, 255, 255, 0.92);
+    font-size: 0.875rem;
+    animation: fadeInUp 0.5s ease both;
+}
+
+.accordion-summary {
+    font-family: 'Fredoka One', sans-serif;
+    font-size: 1rem;
+    color: #ffffff;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    margin: 0;
+    padding: 1rem 1.25rem;
+    user-select: none;
+}
+
+.accordion-summary::-webkit-details-marker {
+    display: none;
+}
+
+.accordion-summary::after {
+    content: '▾';
+    font-size: 1.1rem;
+    transition: transform 0.2s ease;
+}
+
+.accordion[open] .accordion-summary::after {
+    transform: rotate(-180deg);
+}
+
+.accordion-content {
+    padding: 0.75rem 1.25rem 1rem;
+    margin-top: 0.75rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.accordion-content h4 {
+    font-family: 'Fredoka One', sans-serif;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.95rem;
+    margin-bottom: 0.4rem;
+}
+
+.accordion-content a {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.accordion-content a:hover {
+    color: #ffffff;
+}
+
+/* Shared description styles (used by accordion content) */
+
+.steps {
+    padding-left: 1.25rem;
+    line-height: 1.8;
+    margin: 0.5rem 0;
+}
+
+.steps li {
+    margin-bottom: 0.15rem;
+}
+
+.instructions-note {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0;
+    line-height: 1.6;
 }
 
 .example {
-    background: #1a1a1a;
-    border: 2px solid #646cff;
-    padding: 25px;
-    box-shadow: 8px 8px 0px #000;
+    background: rgba(255, 255, 255, 0.08);
+    border-left: 3px solid rgba(255, 255, 255, 0.4);
+    border-radius: 0 10px 10px 0;
+    padding: 1rem 1.25rem;
+    text-align: center;
+    margin: 0.5rem 0;
 }
 
 .blank-word {
-    color: #00d4ff;
-    font-weight: bold;
-    border-bottom: 2px dashed #00d4ff;
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.25);
+    color: #ffffff;
+    border-radius: 999px;
+    padding: 1px 10px;
+    font-weight: 700;
+    font-size: 0.9em;
+    margin: 0 2px;
 }
 
 .transform-arrow {
-    color: #646cff;
+    color: rgba(255, 255, 255, 0.6);
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
     display: block;
-    margin: 15px 0;
-    font-family: 'Orbitron', sans-serif;
+    text-align: center;
+    margin: 0.75rem 0;
+    font-size: 1rem;
 }
 
-.foot-notes {
-    font-size: 9px;
+blockquote {
+    margin: 0.5rem 0;
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.8);
 }

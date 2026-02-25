@@ -12,8 +12,7 @@ function FormTextArea({placeholderText, minLength, maxLength, onChange}: FormTex
     return (
         <textarea
             id="src-text"
-            rows={20}
-            cols={75}
+            rows={8}
             minLength={minLength}
             maxLength={maxLength}
             placeholder={placeholderText}

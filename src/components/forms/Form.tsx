@@ -31,7 +31,7 @@ function Form(
             }}
         >
 
-            {formBody && (<section className="formBody"></section>)}
+            {formBody && (<section className="formBody">{formBody}</section>)}
 
             <section className="formFields">
                 {formFields.map((field, i) => (

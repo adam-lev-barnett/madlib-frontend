@@ -1,110 +1,116 @@
 form {
-    background-color: #1a1a1a;
-    border: 3px solid #000;
-    box-shadow: 12px 12px 0px #000;
-    padding: 40px;
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 2.5rem;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
     transition: all 0.2s ease;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
-.formField label {
-    font-family: 'Orbitron', sans-serif;
-    color: #646cff;
-    font-size: 0.75rem;
-    display: block;
-    margin: 5px;
+.formBody {
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.formBody h2 {
+    font-family: 'Fredoka One', sans-serif;
+    color: #7c3aed;
+    font-size: 1.4rem;
+    margin: 0;
+    text-align: center;
 }
 
 .form {
     display: flex;
-    flex-direction: column; /* Keep fields stacked vertically */
-    align-items: center;    /* Center all children (fields and button) */
+    flex-direction: column;
+    align-items: center;
 }
 
-/* Specifically targeting the submit button */
-form input[type="submit"] {
+.formFields {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.formField {
+    width: 100%;
+}
+
+.formField label {
+    font-family: 'Fredoka One', sans-serif;
+    color: #7c3aed;
+    font-size: 1rem;
     display: block;
-    margin: 20px auto; /* Auto margins on left/right provide perfect centering */
-    width: fit-content; /* Ensures the button doesn't stretch to 100% */
+    margin-bottom: 6px;
+    font-weight: 400;
 }
 
-/* The "Submit" Button - Electric Glow */
-form input[type=submit] {
-    background: #000;
-    color: #00d4ff;
-    border: 2px solid #00d4ff;
-    font-family: 'Orbitron', sans-serif;
-    padding: 15px 30px;
-    cursor: pointer;
-    text-transform: uppercase;
-    transition: 0.3s;
-    box-sizing: border-box;
-    margin: 10px;
-    justify-content: center;
+.formField > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 0;
 }
 
-form input[type=submit]:hover {
-    background: #00d4ff;
-    color: #000;
-    box-shadow: 0 0 20px #00d4ff;
-}
-
-/* Container for the number input */
+/* Number input */
 .formField input[type="number"] {
     box-sizing: border-box;
-    background-color: #050505; /* Deep black background */
-    color: #00d4ff; /* Electric Blue text */
-    border: 2px solid #333;
-    border-radius: 4px;
-    font-family: 'Space Mono', monospace;
-    font-size: 0.75rem;
-    font-weight: bold;
-    padding: 10px;
-    width: 80px;
+    background: #f8fafc;
+    color: #1e1b4b;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 10px 14px;
+    width: 90px;
     text-align: center;
     outline: none;
-    box-shadow: inset 0 0 10px #000, 0 0 5px rgba(0, 212, 255, 0.2);
-    transition: all 0.3s ease;
-    margin: 10px auto;
+    transition: all 0.2s ease;
+    margin: 4px auto;
+    display: block;
 }
 
-/* Removes arrows in Chrome, Safari, Edge */
+.formField input[type="number"]:focus {
+    border-color: #7c3aed;
+    box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.15);
+    transform: scale(1.04);
+}
+
+/* Remove number input arrows */
 .formField input[type="number"]::-webkit-outer-spin-button,
 .formField input[type="number"]::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
 
-.formField > div {
-    display: flex;
-    flex-direction: column; /* Stack label on top of input */
-    align-items: center;    /* Center them horizontally */
-    justify-content: center;
-    width: 100%;            /* Ensure it takes full width of the form */
-    margin: 0 auto;
-    padding: 10px;
-}
-
-/* Ensure the input itself doesn't have weird margins */
-input[type="number"] {
+/* Submit button */
+form input[type="submit"] {
     display: block;
-    padding: 5px; /* Adds spacing between label and input */
+    margin: 1.5rem auto 0;
+    width: fit-content;
+    background: linear-gradient(135deg, #f093fb, #f5576c);
+    color: #ffffff;
+    border: none;
+    border-radius: 50px;
+    font-family: 'Fredoka One', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 400;
+    padding: 14px 44px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 15px rgba(245, 87, 108, 0.3);
 }
 
-.formField input[type="number"]:focus {
-    border-color: #00d4ff;
-    box-shadow: inset 0 0 5px #000, 0 0 15px rgba(0, 212, 255, 0.5);
-    transform: scale(1.25);
-    margin: 10px;
-    box-sizing: border-box;
+form input[type="submit"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(245, 87, 108, 0.45);
 }
 
-/* Style the label specifically for the number entry */
-.formField label[for="skipper-value"] {
-    font-family: 'Orbitron', sans-serif;
-    color: #646cff;
-    font-size: 0.9rem;
-    letter-spacing: 1px;
-    margin-bottom: 15px;
-    display: block;
-    padding: 5px;
+form input[type="submit"]:active {
+    transform: translateY(0);
 }

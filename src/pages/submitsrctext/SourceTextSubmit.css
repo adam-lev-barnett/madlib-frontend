@@ -1,4 +1,7 @@
-h1,
 h2 {
+    font-family: 'Fredoka One', sans-serif;
+    color: #1e1b4b;
     text-align: center;
+    font-size: 1.8rem;
+    margin: 0 0 1rem;
 }

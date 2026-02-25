@@ -1,40 +1,41 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Space+Mono&display=swap');
-
-:root {
-    font-family: 'Space Mono', monospace;
-    background-color: #0f0f12; /* Deep space black */
-    color: #e0e0e0;
+*, *::before, *::after {
+    box-sizing: border-box;
 }
 
-h1, h2 {
-    font-family: 'Orbitron', sans-serif;
-    text-transform: uppercase;
-    letter-spacing: 4px;
-    background: linear-gradient(90deg, #646cff, #00d4ff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    filter: drop-shadow(0 0 5px rgba(100, 108, 255, 0.3));
+:root {
+    font-family: 'Nunito', sans-serif;
+    font-size: 16px;
+    color: #1e1b4b;
 }
 
 body {
     margin: 0;
-    display: flex;
-    justify-content: center; /* Centers horizontally */
-    align-items: flex-start; /* Allows the page to start at the top and scroll */
-    place-items: center;
     min-width: 320px;
     min-height: 100vh;
-    font-size: 12px; /* Add this line to change global text size */
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background-attachment: fixed;
 }
 
-/* Subtle scanline effect overlay */
-body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%);
-    background-size: 100% 4px;
-    z-index: 100;
-    pointer-events: none;
-    opacity: 0.3;
+h1, h2, h3, h4 {
+    font-family: 'Fredoka One', sans-serif;
+    font-weight: 400;
+    letter-spacing: normal;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes celebratePop {
+    0%   { transform: scale(1); }
+    40%  { transform: scale(1.12); }
+    70%  { transform: scale(0.96); }
+    100% { transform: scale(1); }
 }

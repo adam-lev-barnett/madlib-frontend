@@ -1,19 +1,33 @@
-import type {ReactNode} from "react";
 import './CompletedMadlibBlock.css';
 
 interface CompletedMadlibBlockProps {
-    body: ReactNode;
+    blankedText: string;
+    replacementWords: string[];
 }
 
-function CompletedMadlibBlock({body}: CompletedMadlibBlockProps) {
+function CompletedMadlibBlock({ blankedText, replacementWords }: CompletedMadlibBlockProps) {
+    const segments = blankedText.split(/\[[^\]]+\]/g);
+
+    const content = segments.map((segment, i) => (
+        <span key={i}>
+            {segment}
+            {i < replacementWords.length && (
+                <span
+                    className="replaced-word"
+                    style={{ animationDelay: `${i * 0.09}s` }}
+                >
+                    {replacementWords[i]}
+                </span>
+            )}
+        </span>
+    ));
+
     return (
         <section className="CompletedMadlib">
             <h2>Your completed Madlib</h2>
-            <article>{body}</article>
+            <article>{content}</article>
         </section>
-    )
+    );
 }
 
 export default CompletedMadlibBlock;
-
-

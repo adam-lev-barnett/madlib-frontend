@@ -22,11 +22,10 @@ function SourceTextSubmit({onSubmit}: SourceTextSubmitProps): JSX.Element {
 
     return (
         <div>
-            <h2>Madlibify your text!</h2>
             <Form
                 actionUrl=""
                 formId="sourceTextSubmit"
-                formBody={""}
+                formBody={<h2>Madlibify your text!</h2>}
                 formFields= {[
                     <FormNumberEntry
                         labelId="skipper-value"
