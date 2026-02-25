@@ -6,8 +6,6 @@ import ReplacementWordForm from "../partofspeechentry/ReplacementWordForm.tsx";
 import CompletedMadlibBlock from "../../components/text/CompletedMadlibBlock.tsx";
 import type {MadlibPhase} from "../../enums/MadlibPhase.tsx";
 
-const API_BASE = import.meta.env.VITE_API_BASE_URL;
-
 function LandingPage() {
     const [blankedText, setBlankedText] = useState<string>("");
     const [partsOfSpeech, setPartsOfSpeech] = useState<string[]>([]);
@@ -22,7 +20,7 @@ function LandingPage() {
     }
 
     function handleSourceSubmit(sourceText: string, skipper: number) {
-        fetch(`${API_BASE}/madlibs/madlibify`, {
+        fetch(`https://sea-lion-app-qnlay.ondigitalocean.app/madlibs/madlibify`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ sourceText, skipper }),
@@ -41,7 +39,7 @@ function LandingPage() {
     }
 
     function handleReplacementSubmit() {
-        fetch(`${API_BASE}/madlibs/fillMadlib`, {
+        fetch(`https://sea-lion-app-qnlay.ondigitalocean.app/madlibs/fillMadlib`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ blankedText, replacementWords, completedMadlib }),
