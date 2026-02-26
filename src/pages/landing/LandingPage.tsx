@@ -3,7 +3,7 @@ import SourceTextSubmit from "../submitsrctext/SourceTextSubmit.tsx";
 import "./LandingPage.css";
 import {useState} from "react";
 import ReplacementWordForm from "../partofspeechentry/ReplacementWordForm.tsx";
-import CompletedMadlibBlock from "../../components/text/CompletedMadlibBlock.tsx";
+import CompletedMadlibBlock from "../completedmadlib/CompletedMadlibBlock.tsx";
 import type {MadlibPhase} from "../../enums/MadlibPhase.tsx";
 
 function LandingPage() {
