@@ -38,6 +38,18 @@ In dev, `/api/*` proxies to `http://localhost:8080` (configured in `vite.config.
 - `src/components/text/CompletedMadlibBlock.tsx` — Displays the final madlib result.
 - `src/pages/partofspeechentry/WordReplacementText.tsx` — Static heading for the REPLACE_WORDS phase.
 
+### Authentication
+
+Google OAuth flow:
+1. `GoogleLogin` (`src/components/GoogleLogin.tsx`) redirects the browser to `${VITE_BACKEND_URL}/oauth2/authorization/google`.
+2. After Google authenticates, the backend redirects to `/auth/callback?token=...`.
+3. `AuthCallback` (`src/pages/auth/AuthCallback.tsx`) reads the token from the URL, saves it to `localStorage`, dispatches `window.dispatchEvent(new Event('authChange'))`, then navigates to `/`.
+4. `NavBar` (`src/components/NavBar.tsx`) listens for the `'authChange'` event via `useEffect` and re-reads `localStorage` to update its sign-in/sign-out button.
+
+**Why the custom event?** `NavBar` and `AuthCallback` are sibling subtrees — neither is a parent of the other. React state can't flow between siblings without lifting it to a common ancestor. `localStorage` is a shared side-effect store that React doesn't know about, so writing to it doesn't trigger re-renders. The `window` custom event (`'authChange'`) is a lightweight broadcast that lets `AuthCallback` notify any listener (here, `NavBar`) that auth state changed, without needing a global state library (Redux, Zustand, Context) or prop-drilling all the way up to `App`.
+
+The built-in `'storage'` event would be the natural solution, but browsers only fire it for changes made in *other* tabs — same-tab writes are silent. The custom event works in both same-tab and cross-tab scenarios when paired with a `storage` listener (only the custom event is needed here since everything happens in one tab).
+
 ### Analytics
 
 `@vercel/analytics` is installed as a dependency but not yet wired up in `main.tsx`.
