@@ -1,0 +1,25 @@
+.madlib-card {
+    background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+    color: #1e1b4b;
+    border-radius: 20px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    padding: 1.5rem 2rem;
+    animation: fadeInUp 0.4s ease both;
+}
+
+.madlib-card-date {
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.8rem;
+    color: #7c3aed;
+    font-weight: 700;
+    margin: 0 0 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.madlib-card-text {
+    font-family: 'Nunito', sans-serif;
+    font-size: 1rem;
+    line-height: 1.8;
+    margin: 0;
+}

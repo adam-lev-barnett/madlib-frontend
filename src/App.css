@@ -3,6 +3,11 @@
     padding: 2rem 0;
 }
 
+.app-content {
+    position: relative;
+    z-index: 1;
+}
+
 html, body {
     width: 100%;
     margin: 0;
@@ -16,9 +21,9 @@ body {
 hr {
     border: none;
     height: 2px;
-    background: linear-gradient(90deg, transparent, rgba(124, 58, 237, 0.3), transparent);
+    background: linear-gradient(90deg, transparent, rgb(255, 255, 255), transparent);
     margin: 1.5rem auto;
-    width: 85%;
+    width: 100%;
 }
 
 input,
