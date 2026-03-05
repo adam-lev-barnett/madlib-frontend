@@ -1,0 +1,34 @@
+.floating-words-container {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.floating-word {
+    position: absolute;
+    font-family: 'Fredoka One', sans-serif;
+    color: rgb(114, 0, 182);
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: both;
+    user-select: none;
+    white-space: nowrap;
+}
+
+@keyframes float1 {
+    0%, 100% { transform: translateY(10px) rotate(-2deg); }
+    50%       { transform: translateY(-18px) rotate(2deg); }
+}
+
+@keyframes float2 {
+    0%, 100% { transform: translateY(0) rotate(1deg); }
+    50%       { transform: translateY(-12px) rotate(-2deg); }
+}
+
+@keyframes float3 {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    30%       { transform: translateY(-8px) rotate(1.5deg); }
+    70%       { transform: translateY(-20px) rotate(-1deg); }
+}

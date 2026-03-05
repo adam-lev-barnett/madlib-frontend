@@ -1,84 +1,45 @@
 
 import SourceTextSubmit from "../submitsrctext/SourceTextSubmit.tsx";
 import "./LandingPage.css";
-import {useState} from "react";
 import ReplacementWordForm from "../partofspeechentry/ReplacementWordForm.tsx";
 import CompletedMadlibBlock from "../completedmadlib/CompletedMadlibBlock.tsx";
-import type {MadlibPhase} from "../../enums/MadlibPhase.tsx";
+import { useMadlib } from "../../hooks/useMadlib.ts";
 
 function LandingPage() {
-    const [blankedText, setBlankedText] = useState<string>("");
-    const [partsOfSpeech, setPartsOfSpeech] = useState<string[]>([]);
-    const [replacementWords, setReplacementWords] = useState<string[]>([]);
-    const [completedMadlib, setCompletedMadlib] = useState<string>("");
-    const [madlibPhase, setMadlibPhase] = useState<MadlibPhase>("SUBMIT_SOURCE");
-
-    function handleReplaceWord(i: number, word: string) {
-        const replacementWordTemp: string[] = [...replacementWords];
-        replacementWordTemp[i] = word;
-        setReplacementWords(replacementWordTemp);
-    }
-
-    function handleSourceSubmit(sourceText: string, skipper: number) {
-        fetch(`https://sea-lion-app-qnlay.ondigitalocean.app/madlibs/madlibify`, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ sourceText, skipper }),
-        })
-            .then((response) => {
-                if (!response.ok) throw new Error("Failed to madlibify text");
-                return response.json();
-            })
-            .then((data) => {
-                setBlankedText(data.blankedText);
-                setPartsOfSpeech(data.partsOfSpeech);
-                setReplacementWords(new Array(data.partsOfSpeech.length).fill(""));
-                setMadlibPhase("REPLACE_WORDS");
-            })
-            .catch((err) => console.error(err));
-    }
-
-    function handleReplacementSubmit() {
-        fetch(`https://sea-lion-app-qnlay.ondigitalocean.app/madlibs/fillMadlib`, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ blankedText, replacementWords, completedMadlib }),
-        })
-            .then((response) => {
-                if (!response.ok) throw new Error("Failed to complete madlib with submitted words");
-                return response.json();
-            })
-            .then((data) => {
-                setCompletedMadlib(data.completeMadlib);
-                setMadlibPhase("COMPLETE");
-            })
-            .catch((err) => console.error(err));
-    }
+    const {
+        phase,
+        blankedText,
+        partsOfSpeech,
+        replacementWords,
+        isPending,
+        handleSourceSubmit,
+        handleReplaceWord,
+        handleReplacementSubmit,
+    } = useMadlib();
 
     return (
-        <div className="page-wrapper">
+        <div className="landing-page-wrapper">
             <h1 className="site-heading">Madlib Machine</h1>
 
-            {madlibPhase === "SUBMIT_SOURCE" && (
-                <>
-                    <details className="accordion">
-                        <summary className="accordion-summary">How it works</summary>
-                        <div className="accordion-content">
-                            <ol className="steps">
-                                <li>Paste any text you want to <em>madlibify</em></li>
-                                <li>Set the <em>skipper</em> — how many words to skip before blanking one</li>
-                                <li>Fill in a replacement word for each blank</li>
-                                <li>Get your madlib!</li>
-                            </ol>
-                            <hr />
-                            <p className="instructions-note">
-                                <strong>Madlibifiable words</strong> are nouns, verbs, adjectives, and adverbs.
-                                A skipper of <strong>0</strong> blanks every one; higher values mean fewer blanks.
-                            </p>
-                        </div>
-                    </details>
+            {phase === "SUBMIT_SOURCE" && (
+                <div className="submit-row">
+                    <div className="info-card">
+                        <h3 className="info-card-heading">How it works</h3>
+                        <ol className="steps">
+                            <li><strong>Log in with Google on the top left</strong> if you want to save your Madlib (optional)</li>
+                            <li>Paste any text you want to <em>madlibify</em></li>
+                            <li>Set the <em>blank density</em> — a lower number means more blanks!</li>
+                            <li>Fill in a replacement word for each blank where prompted</li>
+                            <li>Get your madlib!</li>
+                        </ol>
+                        <hr />
+                        <p className="instructions-note">
+                            <strong>Madlibifiable words</strong> are nouns, verbs, adjectives, and adverbs.
+                            A skipper of <strong>0</strong> blanks every one; higher values mean fewer blanks.
+                        </p>
+                    </div>
 
-                    <SourceTextSubmit onSubmit={handleSourceSubmit} />
+                    <SourceTextSubmit onSubmit={handleSourceSubmit} isPending={isPending} />
 
                     <details className="accordion">
                         <summary className="accordion-summary">What is a Madlib?</summary>
@@ -118,18 +79,19 @@ function LandingPage() {
                             </article>
                         </div>
                     </details>
-                </>
+                </div>
             )}
 
-            {madlibPhase === "REPLACE_WORDS" &&
+            {phase === "REPLACE_WORDS" &&
                 <ReplacementWordForm
                     partsOfSpeech={partsOfSpeech}
                     onWordChange={handleReplaceWord}
                     onSubmit={handleReplacementSubmit}
+                    isPending={isPending}
                 />
             }
 
-            {madlibPhase === "COMPLETE" &&
+            {phase === "COMPLETE" &&
                 <CompletedMadlibBlock blankedText={blankedText} replacementWords={replacementWords} />
             }
         </div>
