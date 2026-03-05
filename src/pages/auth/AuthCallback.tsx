@@ -9,6 +9,7 @@ export default function AuthCallback() {
         const token = params.get('token');
         if (token) {
             localStorage.setItem('authToken', token);
+            window.dispatchEvent(new Event('authChange'));
         }
         navigate('/', { replace: true });
     }, [navigate]);

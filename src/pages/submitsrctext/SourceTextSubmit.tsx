@@ -8,8 +8,9 @@ interface SourceTextSubmitProps {
     isPending: boolean;
 }
 
+/* Determines how many words are blanked */
 function skipperDescriptor(skipper: number): string {
-    if (skipper === 0) return 'maximum chaos — blank every word';
+    if (skipper === 1) return 'maximum chaos — blank every word';
     if (skipper <= 2)  return 'heavy — lots of blanks';
     if (skipper <= 4)  return 'classic madlib feel';
     if (skipper <= 6)  return 'light — fewer blanks';
