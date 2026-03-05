@@ -10,15 +10,15 @@ A TypeScript/React app that turns any text into a madlib. Paste text, set a blan
 
 ## Screenshots
 
-**1. Enter your text and blank density**
+**1. Enter your text and blank density**  
 ![Home screen](src/screenshots/HomeScreen.png)
-
-**2. Fill in a replacement word for each blank**
+  
+**2. Fill in a replacement word for each blank**  
 ![Fill blanks](src/screenshots/FillBlanks.png)
-
-**3. Get your completed madlib**
+  
+**3. Get your completed madlib**  
 ![Completed madlib](src/screenshots/CompletedMadlib.png)
-
+  
 ---
 
 ## Tech Stack
