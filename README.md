@@ -1,68 +1,71 @@
 # Madlib Machine — Frontend
+
+A TypeScript/React app that turns any text into a madlib. Paste text, set a blank density, fill in replacement words, and wackiness ensues.
+
+- Live app: https://madlib-frontend-deploy.vercel.app/
+- Backend repo: https://github.com/adam-lev-barnett/MadlibMachine-web
+- Original CLI version: https://github.com/adam-lev-barnett/madlib-machine
+
+---
+
+## Screenshots
+
+**1. Enter your text and blank density**  
+![Home screen](src/screenshots/HomeScreen.png)
   
-## Overview  
+**2. Fill in a replacement word for each blank**  
+![Fill blanks](src/screenshots/FillBlanks.png)
+  
+**3. Get your completed madlib**  
+![Completed madlib](src/screenshots/CompletedMadlib.png)
+  
+---
 
-This repository contains the frontend for *Madlib Machine*, a web application that transforms user-submitted text into an interactive madlib.
+## Tech Stack
 
-Users submit any text up to **10,000 characters**, are prompted to replace a user-defined number of nouns, verbs, adjectives, and receive a completed madlib with the replaced text.
-
-- The app is available via browser [here](https://madlib-frontend-deploy.vercel.app/)
-- The backend code is available [here](https://github.com/adam-lev-barnett/MadlibMachine-web)
-- The original CLI file-based version is available [here](https://github.com/adam-lev-barnett/madlib-machine)
+**Frontend**: React 19, TypeScript, Vite, CSS
+**Backend**: Java, Spring Boot, Spring Security, Maven, Stanford CoreNLP, PostgreSQL, Mockito, JUnit
 
 ---
 
-## Instructions
-1. Enter text you wish to madlibify.
-2. Enter how many madlibifiable words you would like to skip.1, 2
-3. The Machine returns a new text with various madlibifiable words replaced by their respective parts of speech
-4. The Machine prompts you to enter replacement words for each removed word based on their parts of speech
-5. Voila! You now have a silly madlib to share with everyone you know and/or don't know!
+## Running Locally
 
----
-
-## Future updates
-
-- **Layout and design are still in-progress**: the app will _look_ much more exciting than it is currently
-- **Improved formatting**:
-  - New lines in completed madlib will be preserved in future versions.
-  - LLM used for determining parts of speech assumes most capitalized words are proper nouns and does not blank them accordingly
-- **Madlib saving and sharing** will take longer to implement but will be available in coming versions
-___
-## Tech stack
-**Frontend**: React, TypeScript, Vite, CSS  
-**Backend**: Java, Spring Boot, Maven, Stanford CoreNLP, Junit Jupiter
-
----
-
-## Running app locally
-
-### Requirements
-- Node.js 18+
-- A running instance of the Spring Boot backend
-
-### Install
+Requires Node.js 18+ and the Spring Boot backend running on port 8080.
 
 ```bash
 npm install
+npm run dev       # http://localhost:5173
+npm run build     # type-check + production build
+npm run lint
 ```
 
-```bash
-npm run dev
-```
-
-The app will be available at the URL printed in the console.
+The Vite dev proxy forwards `/api`, `/oauth2`, and `/login` to `localhost:8080`.
 
 ---
 
-## Notable packages
+## Architecture
 
-- _src/components/forms_: separate components for form fields and a general form template used for source text submission and entering replacement words
-- _src/pages_: the landing page, which holds and controls the display and state of the layouts defined in ReplacementWordForm and SourceTextSubmit
-- _src/MadlibPhase.tsx_: The type that determines the madlib's state used by LandingPage.tsx
+The app is a three-phase flow orchestrated by `LandingPage` via the `useMadlib` hook:
 
-Details for the various files and components are included in the code itself
+1. **SUBMIT_SOURCE** — user pastes text and sets a skipper (blank density 1–9). Calls `POST /madlibs/madlibify`.
+2. **REPLACE_WORDS** — one input per blank, labeled by part of speech. Calls `POST /madlibs/fillMadlib`.
+3. **COMPLETE** — the finished madlib is rendered client-side with a staggered word-reveal animation.
+
+All state lives in the hook; child components are purely presentational.
+
+### Authentication
+
+Google OAuth via the backend. After login, a JWT is saved to `localStorage`. A custom `'authChange'` window event notifies `NavBar` to update without a global state library — needed because the native `'storage'` event only fires in other tabs.
 
 ---
-**License**  
-Educational and portfolio use only.
+
+## Environment Variables
+
+| Variable | Dev | Production |
+|---|---|---|
+| `VITE_API_BASE_URL` | `/api` (proxied) | backend URL |
+| `VITE_BACKEND_URL` | *(empty)* | backend URL |
+
+---
+
+**License**: Educational and portfolio use only.
