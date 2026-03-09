@@ -10,7 +10,6 @@
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     margin: 0px auto;
     font-family: 'Fredoka One', sans-serif;
-
 }
 
 .navbar-google {
@@ -32,6 +31,35 @@
     display: flex;
     gap: 0.5rem;
     align-items: center;
+}
+
+@media (max-width: 640px) {
+    .navbar {
+        flex-direction: column;
+        gap: 0.4rem;
+        padding: 0.6rem 0.75rem;
+    }
+
+    .navbar-google {
+        position: static;
+        padding-left: 0;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+    }
+
+    #sign-in-to-save {
+        display: none;
+    }
+
+    .navbar-links {
+        gap: 0.25rem;
+    }
+
+    .nav-link {
+        padding: 0.3rem 0.85rem;
+        font-size: 1rem;
+    }
 }
 
 .nav-link {
