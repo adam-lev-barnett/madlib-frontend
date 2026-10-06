@@ -1,6 +1,8 @@
 import { useState, useCallback, useTransition, useEffect } from "react";
 import type { SavedMadlibResponse } from "../types/SavedMadlibResponse";
 
+/* Used to get an individual's Madlib history; can only be seen if the user is registered */
+
 const API_BASE = import.meta.env.VITE_API_BASE_URL as string;
 
 function authHeaders(): HeadersInit {
