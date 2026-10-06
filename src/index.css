@@ -22,6 +22,7 @@ h1, h2, h3, h4 {
     letter-spacing: normal;
 }
 
+/* Transition for different cards/routes */
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -33,6 +34,11 @@ h1, h2, h3, h4 {
     }
 }
 
+/*
+Primarily used for madlib completion stage,
+where replacement words pop into the spots formerly
+occupied by their predecessors
+*/
 @keyframes celebratePop {
     0%   { transform: scale(1); }
     40%  { transform: scale(1.12); }
