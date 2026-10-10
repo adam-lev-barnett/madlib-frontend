@@ -1,11 +1,13 @@
 #root {
     width: 100%;
-    padding: 2rem 0;
+    min-height: 100vh;
+    padding: 0 0 3rem;
 }
 
 .app-content {
     position: relative;
     z-index: 1;
+    width: 100%;
 }
 
 html, body {
@@ -14,14 +16,29 @@ html, body {
     padding: 0;
 }
 
-body {
-    line-height: 1.6;
+/* Custom subtle stationery scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f4f4f6;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #d4d4d8;
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #a1a1aa;
 }
 
 hr {
     border: none;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, rgb(255, 255, 255), transparent);
+    height: 1px;
+    background: var(--border-subtle);
     margin: 1.5rem auto;
     width: 100%;
 }
@@ -30,6 +47,7 @@ input,
 textarea,
 select {
     max-width: 100%;
+    font-family: inherit;
 }
 
 .description {
@@ -38,10 +56,10 @@ select {
 
 .foot-notes {
     list-style-type: none;
-    font-size: 0.8rem;
-    width: 85%;
+    font-size: 0.85rem;
+    width: 100%;
     padding: 0;
-    color: #64748b;
+    color: var(--text-muted);
 }
 
 .foot-notes li {
@@ -49,10 +67,10 @@ select {
 }
 
 .blank-word {
-    font-weight: 700;
+    font-weight: 600;
 }
 
 .transform-arrow {
-    font-size: 1rem;
-    font-weight: 700;
+    font-size: 0.95rem;
+    font-weight: 600;
 }

@@ -1,25 +1,51 @@
 .madlib-card {
-    background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
-    color: #1e1b4b;
-    border-radius: 20px;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
-    padding: 1.5rem 2rem;
+    background: #ffffff;
+    border: 1px solid var(--border-ink);
+    box-shadow: 
+        0 0 0 3px #ffffff,
+        0 0 0 4px var(--border-subtle),
+        var(--shadow-stationery);
+    border-radius: 2px;
+    padding: 2rem 2.25rem;
     animation: fadeInUp 0.4s ease both;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.madlib-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+        0 0 0 3px #ffffff,
+        0 0 0 4px var(--border-medium),
+        var(--shadow-elevated);
 }
 
 .madlib-card-date {
-    font-family: 'Nunito', sans-serif;
-    font-size: 0.8rem;
-    color: #7c3aed;
-    font-weight: 700;
-    margin: 0 0 0.75rem;
+    display: inline-block;
+    font-family: var(--font-sans);
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    font-weight: 600;
+    margin: 0 0 0.85rem;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.12em;
 }
 
 .madlib-card-text {
-    font-family: 'Nunito', sans-serif;
-    font-size: 1rem;
-    line-height: 1.8;
+    font-family: var(--font-serif);
+    font-size: 1.22rem;
+    line-height: 2.15;
+    color: var(--text-ink);
     margin: 0;
+}
+
+.card-replaced-word {
+    font-family: var(--font-serif), serif;
+    font-style: italic;
+    font-weight: 700;
+    color: #000000;
+    background: #f4f4f6;
+    text-decoration-color: var(--border-ink);
+    border-bottom: none;
+    padding: 0 0px;
+    margin: 0 2px;
 }
