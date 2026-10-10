@@ -3,45 +3,69 @@
 }
 
 :root {
-    font-family: 'Nunito', sans-serif;
+    --font-serif: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+    --font-display: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+    --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+    /* Prim & Proper Black-Tie Stationery Palette */
+    --bg-canvas: #f8f8f9;
+    --bg-card: #ffffff;
+    --bg-card-subtle: #fafafa;
+    --bg-muted: #f4f4f6;
+    --bg-tag: #ededf0;
+
+    --text-ink: #09090b;
+    --text-charcoal: #27272a;
+    --text-secondary: #52525b;
+    --text-muted: #71717a;
+    --text-dim: #a1a1aa;
+
+    --border-ink: #09090b;
+    --border-dark: #27272a;
+    --border-medium: #d4d4d8;
+    --border-subtle: #e4e4e7;
+    --border-light: #f4f4f5;
+
+    /* Formal Stationery Shadow & Frame */
+    --shadow-stationery: 0 4px 20px -2px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.03);
+    --shadow-elevated: 0 20px 45px -12px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.04);
+
+    font-family: var(--font-sans);
     font-size: 16px;
-    color: #1e1b4b;
+    color: var(--text-ink);
+    background-color: var(--bg-canvas);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 body {
     margin: 0;
     min-width: 320px;
     min-height: 100vh;
-    background: linear-gradient(135deg, #020000 0%, #663c8d 100%);
+    background-color: var(--bg-canvas);
+    background-image: 
+        radial-gradient(ellipse 80% 50% at 50% 0%, rgba(0, 0, 0, 0.02) 0%, transparent 60%),
+        linear-gradient(180deg, #fafafb 0%, #f4f4f6 100%);
     background-attachment: fixed;
+    color: var(--text-ink);
+    line-height: 1.65;
 }
 
 h1, h2, h3, h4 {
-    font-family: 'Fredoka One', sans-serif;
-    font-weight: 400;
-    letter-spacing: normal;
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--text-ink);
 }
 
-/* Transition for different cards/routes */
+/* Formal subtle entry */
 @keyframes fadeInUp {
     from {
         opacity: 0;
-        transform: translateY(24px);
+        transform: translateY(12px);
     }
     to {
         opacity: 1;
         transform: translateY(0);
     }
-}
-
-/*
-Primarily used for madlib completion stage,
-where replacement words pop into the spots formerly
-occupied by their predecessors
-*/
-@keyframes celebratePop {
-    0%   { transform: scale(1); }
-    40%  { transform: scale(1.12); }
-    70%  { transform: scale(0.96); }
-    100% { transform: scale(1); }
 }

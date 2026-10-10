@@ -5,7 +5,7 @@ import GalleryPage from "./pages/gallery/GalleryPage.tsx";
 import MyMadlibsPage from "./pages/gallery/MyMadlibsPage.tsx";
 import AuthCallback from "./pages/auth/AuthCallback.tsx";
 import NavBar from "./components/NavBar.tsx";
-import FloatingWords from "./components/FloatingWords.tsx";
+import FloatingWords from "./components/text/FloatingWords.tsx";
 
 function App() {
   return (

@@ -1,6 +1,7 @@
 import FormTextBox from "../../components/forms/entryfields/FormTextBox.tsx";
 import Form from "../../components/forms/Form";
 import WordReplacementText from "./WordReplacementText.tsx";
+import "./ReplacementWordForm.css";
 
 export interface ReplacementWordFormProps {
     partsOfSpeech: string[];
@@ -13,10 +14,14 @@ const VOWELS = ['a', 'e', 'i', 'o', 'u'];
 
 function ReplacementWordForm({ partsOfSpeech, onWordChange, onSubmit, isPending }: ReplacementWordFormProps) {
     const formFields = partsOfSpeech.map((pos, i) => (
-        <div key={i}>
+        <div key={i} className="word-field-wrapper">
+            <div className="word-field-tag">
+                <span>{pos}</span>
+                <span className="word-field-number">#{i + 1}</span>
+            </div>
             <FormTextBox
                 labelId={pos + i.toString()}
-                prompt={VOWELS.includes(pos[0]) ? `Enter an ${pos}` : `Enter a ${pos}`}
+                prompt={VOWELS.includes(pos[0].toLowerCase()) ? `Enter an ${pos}` : `Enter a ${pos}`}
                 minChars={0}
                 maxChars={25}
                 onChange={(newWord: string) => onWordChange(i, newWord)}
@@ -25,17 +30,23 @@ function ReplacementWordForm({ partsOfSpeech, onWordChange, onSubmit, isPending 
     ));
 
     return (
-        <div id="replaceWords">
-                <WordReplacementText />
-                <Form
-                    actionUrl=""
-                    formId="replaceWords"
-                    formFields={formFields}
-                    button={(<input type="submit" value="Submit" disabled={isPending} />)}
-                    onSubmit={onSubmit}
-                />
+        <div id="replaceWords" className="replace-words-container">
+            <WordReplacementText />
+            <Form
+                actionUrl=""
+                formId="replaceWords"
+                formFields={formFields}
+                button={(
+                    <input
+                        type="submit"
+                        value={isPending ? "Assembling Story…" : "Complete Madlib ✨"}
+                        disabled={isPending}
+                    />
+                )}
+                onSubmit={onSubmit}
+            />
         </div>
-    )
+    );
 }
 
 export default ReplacementWordForm;

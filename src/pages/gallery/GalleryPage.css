@@ -1,39 +1,53 @@
 .gallery-grid {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.5rem;
+    margin-top: 1rem;
 }
 
 .gallery-status {
-    font-family: 'Nunito', sans-serif;
-    color: rgba(255, 255, 255, 0.8);
+    font-family: var(--font-serif);
+    font-style: italic;
+    color: var(--text-muted);
     text-align: center;
-    font-size: 1rem;
+    font-size: 1.25rem;
+    padding: 3.5rem 1rem;
+    background: #ffffff;
+    border: 1px solid var(--border-medium);
+    border-radius: 2px;
 }
 
 .gallery-error {
     text-align: center;
-    font-family: 'Nunito', sans-serif;
-    color: rgba(255, 255, 255, 0.9);
+    font-family: var(--font-sans);
+    color: var(--text-ink);
+    background: #ffffff;
+    border: 1px solid var(--border-ink);
+    border-radius: 2px;
+    padding: 2.5rem;
 }
 
 .gallery-error p {
-    margin-bottom: 0.75rem;
+    font-family: var(--font-serif);
+    font-size: 1.2rem;
+    margin: 0 0 1.25rem;
 }
 
 .gallery-retry-btn {
-    font-family: 'Fredoka One', sans-serif;
-    font-size: 1rem;
+    font-family: var(--font-sans);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
     color: #ffffff;
-    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-    border: none;
-    border-radius: 999px;
-    padding: 0.5rem 1.5rem;
+    background: var(--text-ink);
+    border: 1px solid var(--text-ink);
+    border-radius: 2px;
+    padding: 0.6rem 1.75rem;
     cursor: pointer;
-    box-shadow: 0 4px 15px rgba(245, 87, 108, 0.4);
-    transition: opacity 0.2s ease;
+    transition: all 0.2s ease;
 }
 
 .gallery-retry-btn:hover {
-    opacity: 0.9;
+    background: #27272a;
 }

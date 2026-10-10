@@ -2,25 +2,26 @@ textarea {
     display: block;
     width: 100%;
     box-sizing: border-box;
-    background: #f8fafc;
-    color: #1e1b4b;
-    border: 2px solid #e2e8f0;
-    border-radius: 12px;
-    font-family: 'Nunito', sans-serif;
-    font-size: 1rem;
-    line-height: 1.6;
-    padding: 16px;
+    background: #ffffff;
+    color: var(--text-ink);
+    border: 1px solid var(--border-medium);
+    border-radius: 2px;
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    padding: 16px 18px;
     outline: none;
     resize: vertical;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
-    align-self: center;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    min-height: 160px;
 }
 
 textarea:focus {
-    border-color: #7c3aed;
-    box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.15);
+    border-color: var(--border-ink);
+    box-shadow: 0 0 0 1px var(--border-ink);
 }
 
 textarea::placeholder {
-    color: #94a3b8;
+    color: var(--text-dim);
+    font-weight: 400;
 }
