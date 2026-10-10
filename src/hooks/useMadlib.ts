@@ -65,6 +65,14 @@ export function useMadlib() {
         });
     }, [blankedText, replacementWords, completedMadlib]);
 
+    const handleReset = useCallback(() => {
+        setBlankedText("");
+        setPartsOfSpeech([]);
+        setReplacementWords([]);
+        setCompletedMadlib("");
+        setPhase("SUBMIT_SOURCE");
+    }, []);
+
     return {
         phase,
         blankedText,
@@ -74,5 +82,6 @@ export function useMadlib() {
         handleSourceSubmit,
         handleReplaceWord,
         handleReplacementSubmit,
+        handleReset,
     };
 }

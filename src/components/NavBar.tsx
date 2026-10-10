@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { useState, useEffect } from "react";
-import GoogleLogin from "./GoogleLogin";
+import GoogleLogin from "./google_login/GoogleLogin.tsx";
 import "./NavBar.css";
 
 export default function NavBar() {
@@ -21,12 +21,11 @@ export default function NavBar() {
 
     return (
         <nav className="navbar">
-            <div className="navbar-google">
-                {isLoggedIn
-                    ? <button className="google-signin-btn signout-btn" onClick={handleSignOut}>Sign out</button>
-                    : <GoogleLogin />
-                }
-                <span id="sign-in-to-save">Sign in to save and view your Madlibs!</span>
+            <div className="navbar-brand-section">
+                <NavLink to="/" className="navbar-brand">
+                    <span className="navbar-brand-glyph">✦</span>
+                    <span className="navbar-brand-text">Madlib Machine</span>
+                </NavLink>
             </div>
             <div className="navbar-links">
                 <NavLink to="/" end className={({ isActive }) => isActive ? "nav-link nav-link-active" : "nav-link"}>
@@ -35,13 +34,23 @@ export default function NavBar() {
                 <NavLink to="/gallery" className={({ isActive }) => isActive ? "nav-link nav-link-active" : "nav-link"}>
                     Gallery
                 </NavLink>
-                {isLoggedIn
-                    ? <NavLink to="/myMadlibs" className={({ isActive }) => isActive ? "nav-link nav-link-active" : "nav-link"}>
+                {isLoggedIn && (
+                    <NavLink to="/myMadlibs" className={({ isActive }) => isActive ? "nav-link nav-link-active" : "nav-link"}>
                         My Madlibs
-                      </NavLink>
-                    : <span className="nav-link nav-link-disabled"></span>
-                }
-
+                    </NavLink>
+                )}
+            </div>
+            <div className="navbar-auth">
+                {isLoggedIn ? (
+                    <button className="signout-btn" onClick={handleSignOut}>
+                        Sign out
+                    </button>
+                ) : (
+                    <div className="navbar-auth-row">
+                        <GoogleLogin />
+                        <span id="sign-in-to-save">Sign in to save</span>
+                    </div>
+                )}
             </div>
         </nav>
     );

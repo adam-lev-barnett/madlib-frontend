@@ -7,7 +7,7 @@ export default function GalleryPage() {
 
     return (
         <div className="page-wrapper">
-            <h1 className="site-heading">Madlib Gallery</h1>
+            <h1 className="site-heading">My Madlibs</h1>
             {isPending && <p className="gallery-status">Loading madlibs…</p>}
             {error && (
                 <div className="gallery-error">

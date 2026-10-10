@@ -1,54 +1,180 @@
 .CompletedMadlib {
-    background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
-    color: #1e1b4b;
-    border-radius: 20px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
-    padding: 2.5rem;
-    max-width: 700px;
-    margin: 1.5rem auto;
-    line-height: 2;
+    background: #ffffff;
+    border: 1px solid var(--border-ink);
+    box-shadow: 
+        0 0 0 5px #ffffff,
+        0 0 0 6px var(--border-medium),
+        var(--shadow-elevated);
+    border-radius: 3px;
+    padding: 3.5rem 3.5rem;
+    max-width: 820px;
+    margin: 1.5rem auto 3.5rem;
     animation: fadeInUp 0.5s ease both;
+    position: relative;
+}
+
+.completed-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.completed-badge {
+    font-family: var(--font-sans);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--text-muted);
 }
 
 .CompletedMadlib h2 {
-    font-family: 'Fredoka One', sans-serif;
-    color: #7c3aed;
-    font-size: 2rem;
-    border-bottom: 3px solid rgba(124, 58, 237, 0.25);
-    padding-bottom: 0.75rem;
-    margin-top: 0;
-    margin-bottom: 1.5rem;
-    animation: celebratePop 0.5s ease both;
-}
-
-.CompletedMadlib article {
-    font-family: 'Nunito', sans-serif;
-    font-size: 1.1rem;
-}
-
-.CompletedMadlib strong {
-    color: #f5576c;
+    font-family: var(--font-serif);
+    color: var(--text-ink);
+    font-size: 3.1rem;
     font-weight: 700;
+    letter-spacing: 0.01em;
+    margin: 0;
+    line-height: 1.1;
 }
 
-@keyframes wordReveal {
+.completed-ornament {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 260px;
+    margin-top: 0.75rem;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    gap: 1rem;
+}
+
+.completed-ornament::before,
+.completed-ornament::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border-medium);
+}
+
+.completed-story-body {
+    font-family: var(--font-serif);
+    font-size: 1.35rem;
+    font-weight: 400;
+    line-height: 2.3;
+    color: var(--text-ink);
+    letter-spacing: 0.01em;
+    word-break: break-word;
+    text-align: left;
+}
+
+/*
+ * Word fade-in animation:
+ * Each replacement word fades into view over about a half second (0.5s),
+ * with staggered animation-delay applied per index.
+ */
+@keyframes fadeIn {
     from {
         opacity: 0;
-        transform: scale(0.6) translateY(4px);
-    }
-    70% {
-        transform: scale(1.08) translateY(-1px);
     }
     to {
         opacity: 1;
-        transform: scale(1) translateY(0);
     }
 }
 
 .replaced-word {
-    color: #f5576c;
+    font-family: var(--font-serif), serif;
+    font-style: italic;
     font-weight: 700;
+    color: #000000;
+    background: #f4f4f6;
+    text-underline-offset: 2px;
+    text-decoration-color: var(--border-ink);
+    border-bottom: none;
+    padding: 0 4px;
+    margin: 0 2px;
     display: inline-block;
+    line-height: 1.1;
+    vertical-align: baseline;
     opacity: 0;
-    animation: wordReveal 0.75s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+    animation: fadeIn 0.5s ease both;
+    transition: background 0.3s ease;
+}
+
+.replaced-word:hover {
+    background: #e4e4e7;
+}
+
+/* Actions footer */
+
+.completed-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1.25rem;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-subtle);
+    flex-wrap: wrap;
+}
+
+.completed-btn {
+    font-family: var(--font-sans);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 12px 28px;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.copy-btn {
+    background: #ffffff;
+    color: var(--text-ink);
+    border: 1px solid var(--border-ink);
+}
+
+.copy-btn:hover {
+    background: var(--bg-muted);
+}
+
+.copy-btn.copied {
+    color: #000000;
+    background: #f4f4f6;
+    border-color: #000000;
+    font-weight: 700;
+}
+
+.reset-btn {
+    background: var(--text-ink);
+    color: #ffffff;
+    border: 1px solid var(--text-ink);
+}
+
+.reset-btn:hover {
+    background: #27272a;
+    border-color: #27272a;
+}
+
+@media (max-width: 640px) {
+    .CompletedMadlib {
+        padding: 2.25rem 1.75rem;
+    }
+
+    .CompletedMadlib h2 {
+        font-size: 2.25rem;
+    }
+
+    .completed-story-body {
+        font-size: 1.15rem;
+        line-height: 2.1;
+    }
 }

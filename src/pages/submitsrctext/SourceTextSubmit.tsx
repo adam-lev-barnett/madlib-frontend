@@ -26,20 +26,28 @@ function SourceTextSubmit({ onSubmit, isPending }: SourceTextSubmitProps): JSX.E
     }, [onSubmit, sourceText, skipper]);
 
     return (
-        <div>
+        <div className="source-submit-container">
             <Form
                 actionUrl=""
                 formId="sourceTextSubmit"
-                formBody={<h2>Madlibify your text!</h2>}
+                formBody={
+                    <div className="source-form-header">
+                        <h2>Madlibify your text</h2>
+                        <p className="source-form-subtitle">Paste any story, article, or lyrics to transform</p>
+                    </div>
+                }
                 formFields={[
-                    <div className="skipper-field">
-                        <label className="skipper-label">
-                            Blank density
-                            <span className="skipper-value-chip">{skipper}</span>
-                        </label>
+                    <div className="skipper-field" key="skipper">
+                        <div className="skipper-header">
+                            <label className="skipper-label" htmlFor="skipper-slider">
+                                Blank Density
+                            </label>
+                            <span className="skipper-value-chip">Setting {skipper}</span>
+                        </div>
                         <div className="skipper-slider-row">
-                            <span className="skipper-axis-label">more blanks</span>
+                            <span className="skipper-axis-label">More blanks</span>
                             <input
+                                id="skipper-slider"
                                 type="range"
                                 min={1}
                                 max={9}
@@ -47,20 +55,20 @@ function SourceTextSubmit({ onSubmit, isPending }: SourceTextSubmitProps): JSX.E
                                 onChange={(e) => setSkipper(Number(e.target.value))}
                                 className="skipper-slider"
                             />
-                            <span className="skipper-axis-label">fewer blanks</span>
+                            <span className="skipper-axis-label">Fewer blanks</span>
                         </div>
                         <p className="skipper-descriptor">{skipperDescriptor(skipper)}</p>
                     </div>,
-                    <div className="textBoxComponent">
+                    <div className="textBoxComponent" key="textarea">
                         <FormTextArea
-                            placeholderText="Enter the text you wish to madlibify"
+                            placeholderText="Paste or type the text you wish to madlibify…"
                             minLength={0}
                             maxLength={2000}
                             onChange={(sourceText: string) => setSourceText(sourceText)}
                         />
                     </div>,
                 ]}
-                button={<input type="submit" value="Submit" disabled={isPending} />}
+                button={<input type="submit" value={isPending ? "Generating Blanks…" : "Madlibify Text"} disabled={isPending} />}
                 onSubmit={handleSubmit}
             />
         </div>
