@@ -1,0 +1,88 @@
+.replace-words-container {
+    max-width: 860px;
+    margin: 0 auto;
+    width: 100%;
+    animation: fadeInUp 0.4s ease both;
+}
+
+.word-replacement-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.step-indicator-badge {
+    font-family: var(--font-sans);
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--text-muted);
+    background: #ffffff;
+    border: 1px solid var(--border-medium);
+    padding: 0.3rem 0.95rem;
+    border-radius: 2px;
+}
+
+.word-replacement-header h2 {
+    font-family: var(--font-serif);
+    font-size: 2.75rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    margin: 0;
+    color: var(--text-ink);
+}
+
+.word-replacement-header p {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 1.15rem;
+    color: var(--text-secondary);
+    max-width: 540px;
+    margin: 0;
+    line-height: 1.55;
+}
+
+/* Multi-column grid for replacement inputs */
+#replaceWords .formFields {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.25rem;
+}
+
+.word-field-wrapper {
+    background: var(--bg-muted);
+    border: 1px solid var(--border-subtle);
+    border-radius: 2px;
+    padding: 0.9rem 1.15rem;
+    transition: all 0.2s ease;
+}
+
+.word-field-wrapper:focus-within {
+    border-color: var(--border-ink);
+    background: #ffffff;
+    box-shadow: 0 0 0 1px var(--border-ink);
+}
+
+.word-field-tag {
+    font-family: var(--font-sans);
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--text-ink);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.35rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.word-field-number {
+    color: var(--text-muted);
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 0.85rem;
+}
