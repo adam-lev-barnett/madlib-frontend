@@ -7,9 +7,24 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Dependencies
 node_modules
+.pnpm-store
+
+# Build output
 dist
 dist-ssr
+*.tsbuildinfo
+.vite
+
+# Caches and tooling
+.eslintcache
+.cache
+coverage
+.vercel
+
+# Environment / local overrides
+.env
 *.local
 
 # Editor directories and files
@@ -17,12 +32,20 @@ dist-ssr
 !.vscode/extensions.json
 .idea
 *.iml
-.DS_Store
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
-./CLAUDE.md
-keys.txt
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# AI assistant files
 CLAUDE.md
+.claude/settings.local.json
+.agents
+
+# Secrets
+keys.txt
